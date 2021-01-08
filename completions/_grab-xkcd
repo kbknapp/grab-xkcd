@@ -1,0 +1,42 @@
+#compdef grab-xkcd
+
+autoload -U is-at-least
+
+_grab-xkcd() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" \
+'-t+[Set a connection timeout]' \
+'--timeout=[Set a connection timeout]' \
+'-o+[Print output in format FMT]: :(json text)' \
+'--output=[Print output in format FMT]: :(json text)' \
+'-n+[The comic to load]' \
+'--num=[The comic to load]' \
+'-s[Save image file to current directory]' \
+'--save[Save image file to current directory]' \
+'-h[Prints help information]' \
+'--help[Prints help information]' \
+'-V[Prints version information]' \
+'--version[Prints version information]' \
+&& ret=0
+    
+}
+
+(( $+functions[_grab-xkcd_commands] )) ||
+_grab-xkcd_commands() {
+    local commands; commands=(
+        
+    )
+    _describe -t commands 'grab-xkcd commands' commands "$@"
+}
+
+_grab-xkcd "$@"
