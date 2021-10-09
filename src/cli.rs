@@ -1,4 +1,4 @@
-use clap::{Clap, IntoApp};
+use clap::{ArgEnum, Clap, IntoApp};
 use clap_generate::{generate, generators::*};
 
 /// A utility to grab XKCD comics
@@ -21,7 +21,7 @@ pub struct Args {
     pub completions: Option<Shell>,
 }
 
-#[derive(Clap, Copy, Clone)]
+#[derive(ArgEnum, Copy, Clone)]
 pub enum Shell {
     Bash,
     Zsh,
@@ -44,7 +44,7 @@ impl Shell {
     }
 }
 
-#[derive(Clap, Copy, Clone)]
+#[derive(ArgEnum, Copy, Clone)]
 pub enum OutFormat {
     Json,
     Text,
