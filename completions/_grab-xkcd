@@ -21,21 +21,19 @@ _grab-xkcd() {
 '--output=[Print output in format FMT]: :(json text)' \
 '-n+[The comic to load]' \
 '--num=[The comic to load]' \
+'-h[Print help information]' \
+'--help[Print help information]' \
+'-V[Print version information]' \
+'--version[Print version information]' \
 '-s[Save image file to current directory]' \
 '--save[Save image file to current directory]' \
-'-h[Prints help information]' \
-'--help[Prints help information]' \
-'-V[Prints version information]' \
-'--version[Prints version information]' \
 && ret=0
     
 }
 
 (( $+functions[_grab-xkcd_commands] )) ||
 _grab-xkcd_commands() {
-    local commands; commands=(
-        
-    )
+    local commands; commands=()
     _describe -t commands 'grab-xkcd commands' commands "$@"
 }
 

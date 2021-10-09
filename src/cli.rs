@@ -1,4 +1,4 @@
-use clap::Clap;
+use clap::{ArgEnum, Clap};
 
 /// A utility to grab XKCD comics
 #[derive(Clap)]
@@ -17,7 +17,7 @@ pub struct Args {
     pub save: bool,
 }
 
-#[derive(Clap, Copy, Clone)]
+#[derive(ArgEnum, Copy, Clone)]
 pub enum OutFormat {
     Json,
     Text,

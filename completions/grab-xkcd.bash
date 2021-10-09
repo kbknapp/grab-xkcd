@@ -20,7 +20,7 @@ _grab-xkcd() {
 
     case "${cmd}" in
         grab__xkcd)
-            opts=" -t -o -n -s -h -V  --timeout --output --num --save --help --version  "
+            opts=" -h -V -t -o -n -s  --help --version --timeout --output --num --save  "
             if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then
                 COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
                 return 0
@@ -31,7 +31,7 @@ _grab-xkcd() {
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
-                    -t)
+                -t)
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
@@ -39,7 +39,7 @@ _grab-xkcd() {
                     COMPREPLY=($(compgen -W "json text" -- "${cur}"))
                     return 0
                     ;;
-                    -o)
+                -o)
                     COMPREPLY=($(compgen -W "json text" -- "${cur}"))
                     return 0
                     ;;
@@ -47,7 +47,7 @@ _grab-xkcd() {
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
-                    -n)
+                -n)
                     COMPREPLY=($(compgen -f "${cur}"))
                     return 0
                     ;;
