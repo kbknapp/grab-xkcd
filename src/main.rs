@@ -2,7 +2,7 @@ mod cli;
 mod client;
 
 use anyhow::Result;
-use clap::Clap;
+use clap::Parser;
 
 // Base URL of xkcd
 const BASE_URL: &str = "https://xkcd.com";
