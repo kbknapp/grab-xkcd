@@ -1,7 +1,7 @@
-use clap::Clap;
+use clap::{ArgEnum, Parser};
 
 /// A utility to grab XKCD comics
-#[derive(Clap)]
+#[derive(Parser)]
 pub struct Args {
     /// Set a connection timeout
     #[clap(long, short, default_value = "30")]
@@ -17,7 +17,7 @@ pub struct Args {
     pub save: bool,
 }
 
-#[derive(Clap, Copy, Clone)]
+#[derive(ArgEnum, Copy, Clone)]
 pub enum OutFormat {
     Json,
     Text,
